@@ -4,49 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>LucStream TV – Premium TV servis</title>
+<title>LucStream TV</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --neon:#2ac0ff;
-  --accent:#4a6bff;
-  --bg:#020617;
-  --glass:rgba(255,255,255,.05);
-}
+{box-sizing:border-box;margin:0;padding:0}
 
-{box-sizing:border-box}
 body{
-  margin:0;
   font-family:Inter;
-  background:radial-gradient(circle at top,#07112b,#020617);
+  background:linear-gradient(180deg,#020617,#020b1f);
   color:#e6f7ff;
 }
 
-/ CONTAINER /
-.wrap{max-width:1100px;margin:auto;padding:0 18px}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
 
 / HEADER /
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 0;
+  padding:20px 0;
 }
 .site-logo{max-width:150px}
 
 .menu-toggle{
-  background:none;border:none;
-  color:var(--neon);
   font-size:26px;
+  background:none;
+  border:none;
+  color:#2ac0ff;
 }
 
 / NAV /
 .overlay{
-  position:fixed;inset:0;
-  background:rgba(0,10,30,.96);
-  backdrop-filter:blur(10px);
+  position:fixed;
+  inset:0;
+  background:#020b1f;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -61,77 +56,67 @@ header{
 }
 .overlay a{
   font-size:24px;
-  margin:12px;
+  margin:10px;
 }
 .closebtn{
-  position:absolute;top:20px;right:20px;
+  position:absolute;
+  top:20px;
+  right:20px;
   font-size:32px;
 }
 
 / HERO /
-.hero{text-align:center;padding:50px 10px}
+.hero{
+  text-align:center;
+  padding:40px 0;
+}
 
 .hero h1{
   font-family:'Bebas Neue';
-  font-size:60px;
+  font-size:52px;
   background:linear-gradient(90deg,#fff,#2ac0ff);
   -webkit-background-clip:text;
   color:transparent;
 }
 
 .hero p{
+  margin:12px 0 20px;
   color:#9fb3d1;
-  margin:15px auto;
-  max-width:600px;
 }
 
-/ BUTTONS /
 .cta{
   display:inline-block;
-  margin:10px;
-  padding:14px 28px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--neon),var(--accent));
+  margin:8px;
+  padding:14px 22px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#2ac0ff,#4a6bff);
   font-weight:700;
-  transition:.25s;
-}
-.cta:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(42,192,255,.4);
 }
 
-/ PANELS /
+/ PANEL /
 .panel{
-  background:var(--glass);
-  border-radius:18px;
-  padding:25px;
-  margin:25px 0;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.05);
+  background:rgba(255,255,255,.05);
+  padding:20px;
+  border-radius:16px;
+  margin:20px 0;
+  text-align:center;
 }
 
-/ LIVE /
 .counter{
-  font-size:30px;
+  font-size:28px;
   font-weight:800;
-  color:var(--neon);
-}
-
-/ TESTIMONIAL /
-#testimonial{
-  font-style:italic;
-  color:#9fb3d1;
+  color:#2ac0ff;
 }
 
 / WHATSAPP /
 .whatsapp{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  padding:14px;
-  border-radius:14px;
+  bottom:15px;
+  right:15px;
   background:#25d366;
-  font-weight:700;
+  padding:12px 16px;
+  border-radius:12px;
+  color:#fff;
 }
 </style>
 </head>
@@ -154,20 +139,15 @@ header{
 
 <section class="hero">
   <h1>LUCSTREAM TV</h1>
-  <p>Premium TV iskustvo • 20.000+ korisnika • Stabilan 4K streaming</p>
+  <p>Premium TV iskustvo • Stabilan 4K streaming</p>
 
   <a href="#" class="cta">🎯 Besplatna proba</a>
   <a href="#" class="cta">💳 Pogledaj pakete</a>
 </section>
 
-<div class="panel" style="text-align:center">
+<div class="panel">
   <h2>🔴 LIVE aktivnost</h2>
-  <div class="counter" id="liveUsers">0</div>
-</div>
-
-<div class="panel" style="text-align:center">
-  <h2>💬 Iskustva</h2>
-  <p id="testimonial"></p>
+  <div class="counter" id="live">0</div>
 </div>
 
 </div>
@@ -180,24 +160,15 @@ const nav = document.getElementById("nav");
 function openNav(){nav.classList.add("open")}
 function closeNav(){nav.classList.remove("open")}
 
-// LIVE
-function r(min,max){return Math.floor(Math.random()(max-min+1))+min;}
-function live(){document.getElementById("liveUsers").textContent=r(1800,3200);}
-setInterval(live,3000); live();
-
-// TESTIMONIALS
-let t=[
-"Radi savršeno bez štekanja.",
-"Najbolji IPTV koji sam imao.",
-"Vrijedi svake marke.",
-"Podrška top!"
-];
-let i=0;
-function rot(){
- document.getElementById("testimonial").textContent='"'+t[i]+'"';
- i=(i+1)%t.length;
+function rand(min,max){
+ return Math.floor(Math.random()(max-min+1))+min;
 }
-setInterval(rot,3000); rot();
+
+function update(){
+ document.getElementById("live").textContent = rand(1800,3200);
+}
+setInterval(update,3000);
+update();
 </script>
 
 </body>
