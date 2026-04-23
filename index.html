@@ -4,19 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>LucStream TV – Stabilan i pouzdan TV servis</title>
+<title>LucStreamTV – Stabilan i pouzdan TV servis</title>
 
-<meta name="description" content="LucStream TV – stabilan IPTV servis sa 20.000+ korisnika i 12 godina iskustva. HD/4K kanali, filmovi i serije, podrška 24/7.">
-<meta name="keywords" content="TV, LucStream, IPTV Balkan, najbolji IPTV, IPTV pretplata">
-<meta name="author" content="LucStream">
-
-<meta property="og:title" content="LucStream IPTV">
-<meta property="og:description" content="Pouzdan IPTV servis – HD/4K kvalitet, stabilan signal i podrška 24/7.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="lucstream.logo">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
@@ -29,244 +18,144 @@
 {box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter,system-ui;
+  font-family:Inter;
   background:linear-gradient(180deg,#050714,#02102a);
   color:#e6f7ff;
 }
-a{text-decoration:none;color:inherit}
-.wrap{max-width:1200px;margin:auto;padding:0 18px}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
 
 / HEADER /
-header{
-  text-align:center;
-  padding:24px 12px;
-  position:relative;
-}
-.site-logo{max-width:220px}
-.tagline{font-size:14px;color:var(--muted);font-weight:600}
+header{text-align:center;padding:20px 10px;position:relative}
+.site-logo{max-width:180px}
 .menu-toggle{
-  position:absolute;
-  top:18px;right:18px;
+  position:absolute;top:15px;right:15px;
   background:none;border:none;
-  color:var(--neon);
+  color:var(--neon);font-size:28px;
+}
+
+/ NAV FIX /
+.overlay{
+  position:fixed;inset:0;
+  background:#020b1f;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:999;
+}
+.overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+.overlay a{
+  font-size:22px;
+  margin:10px 0;
+}
+.closebtn{
+  position:absolute;top:20px;right:20px;
   font-size:32px;
 }
 
-/ NAV /
-.overlay{
-  position:fixed;inset:0;
-  background:rgba(0,6,20,.96);
-  backdrop-filter:blur(8px);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  transform:scale(0);
-  transition:.4s;z-index:999;
-}
-.overlay.open{transform:scale(1)}
-.overlay a{font-size:22px;padding:12px}
-.closebtn{
-  position:absolute;top:18px;right:22px;
-  font-size:36px;color:var(--neon);
-}
-
 / HERO /
-.hero{text-align:center;padding:40px 12px}
+.hero{text-align:center;padding:30px 10px}
 .hero h1{
   font-family:'Bebas Neue';
-  font-size:56px;margin:0;
+  font-size:48px;
+  margin:0;
 }
 .hero p{
-  max-width:720px;margin:14px auto;
-  color:var(--muted);line-height:1.7;
+  font-size:15px;
+  color:var(--muted);
+  margin:10px 0 20px;
 }
+
 .cta{
-  display:inline-block;
-  margin:10px;
-  padding:14px 28px;
+  display:block;
+  margin:10px auto;
+  max-width:280px;
+  padding:14px;
   border-radius:14px;
   background:linear-gradient(135deg,var(--neon),var(--accent));
-  color:#001;font-weight:800;
-}
-
-/ TRUST BADGES /
-.trust-badges{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;gap:14px;
-  margin:20px 0;
-}
-.badge{
-  background:var(--glass);
-  padding:12px 18px;
-  border-radius:14px;
-  font-size:13px;
-  border:1px solid rgba(255,255,255,.05);
-}
-
-/ COUNTERS /
-.counters{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;gap:14px;
-  margin:30px 0;
-}
-.counter-box{
-  min-width:160px;
-  background:var(--glass);
-  padding:18px;border-radius:14px;
   text-align:center;
+  font-weight:700;
 }
-.counter{font-size:26px;font-weight:800;color:var(--neon)}
-.counter-label{font-size:13px;color:var(--muted)}
 
-/ PANELS /
+/ LIVE /
 .panel{
   background:var(--glass);
   border-radius:16px;
-  padding:26px;margin:30px 0;
-  border:1px solid rgba(255,255,255,.05);
-}
-.trust-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;margin-top:16px;
-}
-.trust-item{
-  background:rgba(255,255,255,.04);
-  border-radius:14px;
-  padding:20px;text-align:center;
-}
-.trust-item h3{margin:10px 0 6px;color:var(--neon)}
-.trust-item p{font-size:14px;color:var(--muted)}
-
-/ FOOTER /
-footer{
-  margin-top:40px;
-  padding:30px 12px;
+  padding:20px;
+  margin:20px 0;
   text-align:center;
-  background:rgba(0,0,0,.6);
-  border-top:1px solid rgba(255,255,255,.05);
 }
-footer small{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+.counter{font-size:26px;color:var(--neon);font-weight:800}
 
 / WHATSAPP /
 .whatsapp{
-  position:fixed;right:18px;bottom:18px;
-  padding:14px 18px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#fff;font-weight:800;
-  z-index:999;
+  position:fixed;right:15px;bottom:15px;
+  padding:12px 16px;
+  border-radius:12px;
+  background:#25d366;
+  color:#fff;
+  font-weight:700;
 }
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
 <header>
-  <img src="lucstream.logo.jpg" class="site-logo" alt="LucStream IPTV">
-  <div class="tagline">Pouzdan TV servis širom svijeta</div>
-  <div class="tagline">Kvalitet i stabilnost na PRVOM mjestu!</div>
+  <img src="lucstream.logo.jpg" class="site-logo">
   <button class="menu-toggle" onclick="openNav()">☰</button>
 </header>
 
 <nav id="nav" class="overlay">
   <div class="closebtn" onclick="closeNav()">×</div>
-  <a href="index.html">Početna</a>
-  <a href="onama.html">O nama</a>
-  <a href="cjenovnik.html">Cjenovnik</a>
-  <a href="placanje.html">Načini plaćanja</a>
-  <a href="proba.html">Besplatna proba</a>
-  <a href="faq.html">FAQ</a>
-  <a href="kontakt.html">Kontakt</a>
+  <a href="#">Početna</a>
+  <a href="#">O nama</a>
+  <a href="#">Cjenovnik</a>
+  <a href="#">Kontakt</a>
 </nav>
 
 <section class="hero">
-  <h1>LucStream TV</h1>
-  <p>12 godina iskustva · 20.000+ aktivnih korisnika · Stabilan HD/4K IPTV</p>
-  <a href="proba.html" class="cta">🎯 Besplatna proba</a>
-  <a href="cjenovnik.html" class="cta">💳 Pogledaj pakete</a>
+  <h1>LUCSTREAM TV</h1>
+  <p>Stabilan TV servis • 20.000+ korisnika</p>
+
+  <a href="#" class="cta">🎯 Besplatna proba</a>
+  <a href="#" class="cta">💳 Pogledaj pakete</a>
 </section>
 
-<!-- LIVE PANEL -->
-<div class="panel" style="text-align:center">
+<div class="panel">
   <h2>🔴 LIVE aktivnost</h2>
-  <div class="counters">
-    <div class="counter-box">
-      <div class="counter" id="liveUsers">0</div>
-      <div class="counter-label">Online korisnika</div>
-    </div>
-    <div class="counter-box">
-      <div class="counter" id="watchingNow">0</div>
-      <div class="counter-label">Trenutno gledaju</div>
-    </div>
-  </div>
-
-  <div style="margin-top:20px">
-    <div style="background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden">
-      <div id="uptimeBar" style="height:10px;width:0;background:linear-gradient(90deg,#00ffcc,#2ac0ff)"></div>
-    </div>
-    <div style="font-size:12px;color:var(--neon);margin-top:6px" id="uptimeText">
-      99.9% uptime
-    </div>
-  </div>
+  <div class="counter" id="liveUsers">0</div>
 </div>
-
-<!-- TESTIMONIAL -->
-<div class="panel" style="text-align:center">
-  <h2>💬 Iskustva korisnika</h2>
-  <p id="testimonial" style="color:var(--muted);font-style:italic"></p>
-</div>
-
-<footer>
-  <strong>LucStream IPTV</strong>
-  <small>© 2026 Sva prava zadržana</small>
-  <small>Ne hostujemo niti emitiramo sadržaj</small>
-</footer>
 
 </div>
 
-<a href="https://wa.me/38761757797" class="whatsapp">💬 WhatsApp</a>
+<a href="https://wa.me/38761757797" class="whatsapp">WhatsApp</a>
 
 <script>
 
-// NAV
+// FIX NAJBITNIJI
+const nav = document.getElementById("nav");
+
 function openNav(){nav.classList.add("open")}
 function closeNav(){nav.classList.remove("open")}
 
-// LIVE RANDOM
-function random(min,max){return Math.floor(Math.random()(max-min+1))+min;}
-
-function updateLive(){
+// LIVE
+function random(min,max){
+  return Math.floor(Math.random()(max-min+1))+min;
+}
+function update(){
   document.getElementById("liveUsers").textContent = random(1800,3200);
-  document.getElementById("watchingNow").textContent = random(900,2100);
 }
-setInterval(updateLive,4000);
-updateLive();
-
-// UPTIME BAR
-let bar = document.getElementById("uptimeBar");
-let width = 0;
-let interval = setInterval(()=>{
-  width+=1;
-  bar.style.width = width+"%";
-  if(width>=99){clearInterval(interval)}
-},30);
-
-// TESTIMONIALS
-let texts = [
-  "Radi bez štekanja već mjesecima.",
-  "Najbolji IPTV koji sam probao.",
-  "Stabilno čak i navečer kad svi gledaju.",
-  "Sve preporuke, podrška brza."
-];
-
-let i=0;
-function rotateText(){
-  document.getElementById("testimonial").textContent = '"' + texts[i] + '"';
-  i=(i+1)%texts.length;
-}
-setInterval(rotateText,3000);
-rotateText();
+setInterval(update,3000);
+update();
 
 </script>
 
